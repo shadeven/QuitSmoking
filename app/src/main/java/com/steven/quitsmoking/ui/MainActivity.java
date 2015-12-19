@@ -1,5 +1,6 @@
 package com.steven.quitsmoking.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -49,7 +50,15 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    return super.onOptionsItemSelected(item);
+    switch (item.getItemId()) {
+      case R.id.add_goal:
+        Intent intent = new Intent(this, NewGoalActivity.class);
+        startActivity(intent);
+        return true;
+
+      default:
+        return super.onOptionsItemSelected(item);
+    }
   }
 
   @Override
