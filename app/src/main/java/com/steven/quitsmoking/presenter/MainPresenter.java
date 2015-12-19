@@ -9,6 +9,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import rx.Observable;
 
 public class MainPresenter {
 
@@ -37,7 +38,8 @@ public class MainPresenter {
   public void loadAllGoals() {
     RealmQuery<Goal> query = realm.where(Goal.class);
     RealmResults<Goal> results = query.findAll();
-
+    Observable<RealmResults<Goal>> resultsObservable = results.asObservable();
+    
     if (results.isEmpty()) {
       goals.add("No goal created yet.");
     } else {
