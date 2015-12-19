@@ -7,8 +7,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Achievement extends RealmObject {
 
-  @PrimaryKey
-  private int id;
+  @PrimaryKey private int id;
   private String name;
   private String description;
   private String imageURL;

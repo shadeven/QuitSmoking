@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
       xmlns:app="http://schemas.android.com/apk/res-auto"
-      tools:context=".MainActivity">
+      tools:context=".ui.MainActivity">
 
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
@@ -10,5 +10,5 @@
 
     <item android:id="@+id/add_goal"
           android:title="Add Goal"
-          app:showAsAction="never"/>
+          app:showAsAction="always"/>
 </menu>

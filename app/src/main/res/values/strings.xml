@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuitSmoking</string>
+    <string name="app_name">Quit Smoking</string>
     <string name="action_settings">Settings</string>
     <string name="message">Have you achieved your goals today?</string>
 </resources>
