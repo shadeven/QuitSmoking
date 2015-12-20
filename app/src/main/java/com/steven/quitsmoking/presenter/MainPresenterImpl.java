@@ -20,16 +20,22 @@ public class MainPresenterImpl implements MainPresenter {
     this.mainView = mainView;
   }
 
+  public MainPresenterImpl(MainView mainView) {
+    this.mainView = mainView;
+  }
+
   @Override
   public void loadGoals() {
-    RealmQuery<Goal> query = realm.where(Goal.class);
-    RealmResults<Goal> results = query.findAll();
     List<Goal> goals = new ArrayList<>();
 
-    for (Goal goal : results) {
-      goals.add(goal);
-    }
+    if (realm != null) {
+      RealmQuery<Goal> query = realm.where(Goal.class);
+      RealmResults<Goal> results = query.findAll();
 
+      for (Goal goal : results) {
+        goals.add(goal);
+      }
+    }
     mainView.onGetData(goals);
   }
 }
