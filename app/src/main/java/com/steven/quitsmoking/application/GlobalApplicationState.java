@@ -1,4 +1,4 @@
-package com.steven.quitsmoking.Application;
+package com.steven.quitsmoking.application;
 
 import android.app.Application;
 
