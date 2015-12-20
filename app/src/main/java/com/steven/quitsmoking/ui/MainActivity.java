@@ -12,17 +12,18 @@ import android.widget.ListView;
 import com.steven.quitsmoking.R;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.presenter.MainPresenter;
+import com.steven.quitsmoking.presenter.MainPresenterImpl;
 
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView {
 
   private MainPresenter presenter;
   private Realm realm;
-  private ArrayAdapter<String> adapter;
+  private ArrayAdapter<Goal> adapter;
+  private ListView listView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,21 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    ListView goalListView = (ListView) findViewById(R.id.goal_listView);
+    listView = (ListView) findViewById(R.id.listView_goal);
     adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-    goalListView.setAdapter(adapter);
+    listView.setAdapter(adapter);
 
     realm = Realm.getDefaultInstance();
     if (presenter == null) {
-      presenter = new MainPresenter(realm);
+      presenter = new MainPresenterImpl(realm, this);
     }
-    presenter.onTakeView(this);
+    presenter.loadGoals();
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    presenter.loadGoals();
   }
 
   @Override
@@ -64,16 +71,15 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    presenter.onTakeView(null);
     if (isFinishing()) {
       presenter = null;
     }
-
     realm.close();
   }
 
-  public void onItemNext(List<String> results) {
+  @Override
+  public void onGetData(List<Goal> goals) {
     adapter.clear();
-    adapter.addAll(results);
+    adapter.addAll(goals);
   }
 }

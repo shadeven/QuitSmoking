@@ -22,7 +22,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/goal_listView"
+        android:id="@+id/listView_goal"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"/>
 
