@@ -4,6 +4,6 @@ import com.steven.quitsmoking.model.Goal;
 
 import java.util.List;
 
-public interface MainView {
+public interface MainActivityView {
   void onGetData(List<Goal> goals);
 }

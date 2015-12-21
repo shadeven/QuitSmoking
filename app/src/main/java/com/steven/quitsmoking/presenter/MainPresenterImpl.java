@@ -1,7 +1,7 @@
 package com.steven.quitsmoking.presenter;
 
 import com.steven.quitsmoking.model.Goal;
-import com.steven.quitsmoking.ui.MainView;
+import com.steven.quitsmoking.ui.MainActivityView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +12,16 @@ import io.realm.RealmResults;
 
 public class MainPresenterImpl implements MainPresenter {
 
-  private MainView mainView;
+  private MainActivityView view;
   private Realm realm;
 
-  public MainPresenterImpl(Realm realm, MainView mainView) {
+  public MainPresenterImpl(Realm realm, MainActivityView view) {
     this.realm = realm;
-    this.mainView = mainView;
+    this.view = view;
   }
 
-  public MainPresenterImpl(MainView mainView) {
-    this.mainView = mainView;
+  public MainPresenterImpl(MainActivityView view) {
+    this.view = view;
   }
 
   @Override
@@ -36,6 +36,6 @@ public class MainPresenterImpl implements MainPresenter {
         goals.add(goal);
       }
     }
-    mainView.onGetData(goals);
+    view.onGetData(goals);
   }
 }

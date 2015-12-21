@@ -1,7 +1,7 @@
 package com.steven.quitsmoking.presenter;
 
 import com.steven.quitsmoking.model.Goal;
-import com.steven.quitsmoking.ui.MainView;
+import com.steven.quitsmoking.ui.MainActivityView;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ public class MainPresenterTest {
   @Test
   public void testLoadGoals_onGetData() {
     // Arrange
-    MainView mockView = mock(MainView.class);
+    MainActivityView mockView = mock(MainActivityView.class);
 
     // Act
     MainPresenterImpl mainPresenter = new MainPresenterImpl(mockView);

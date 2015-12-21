@@ -18,7 +18,7 @@ import java.util.List;
 
 import io.realm.Realm;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends AppCompatActivity implements MainActivityView {
 
   private MainPresenter presenter;
   private Realm realm;
