@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.steven.quitsmoking.R;
+import com.steven.quitsmoking.interactor.GoalInteractorImpl;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.presenter.MainPresenter;
 import com.steven.quitsmoking.presenter.MainPresenterImpl;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   private Realm realm;
   private ArrayAdapter<Goal> adapter;
   private ListView listView;
+  private GoalInteractorImpl interactor;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +39,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     listView.setAdapter(adapter);
 
     realm = Realm.getDefaultInstance();
+    if (interactor == null) {
+      interactor = new GoalInteractorImpl(realm);
+    }
+
     if (presenter == null) {
-      presenter = new MainPresenterImpl(realm, this);
+      presenter = new MainPresenterImpl(this, interactor);
     }
     presenter.loadGoals();
   }
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.add_goal:
-        Intent intent = new Intent(this, AddGoalActivity.class);
+        Intent intent = new Intent(this, GoalActivity.class);
         startActivity(intent);
         return true;
 

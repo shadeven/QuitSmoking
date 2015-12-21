@@ -1,5 +1,6 @@
 package com.steven.quitsmoking.presenter;
 
+import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.ui.MainActivityView;
 
@@ -19,9 +20,10 @@ public class MainPresenterTest {
   public void testLoadGoals_onGetData() {
     // Arrange
     MainActivityView mockView = mock(MainActivityView.class);
+    GoalInteractor mockInteractor = mock(GoalInteractor.class);
 
     // Act
-    MainPresenterImpl mainPresenter = new MainPresenterImpl(mockView);
+    MainPresenterImpl mainPresenter = new MainPresenterImpl(mockView, mockInteractor);
     mainPresenter.loadGoals();
 
     // Assert

@@ -1,41 +1,29 @@
 package com.steven.quitsmoking.presenter;
 
+import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.ui.MainActivityView;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 public class MainPresenterImpl implements MainPresenter {
 
   private MainActivityView view;
-  private Realm realm;
+  private GoalInteractor interactor;
 
-  public MainPresenterImpl(Realm realm, MainActivityView view) {
-    this.realm = realm;
+  public MainPresenterImpl(MainActivityView view, GoalInteractor interactor) {
     this.view = view;
-  }
-
-  public MainPresenterImpl(MainActivityView view) {
-    this.view = view;
+    this.interactor = interactor;
   }
 
   @Override
   public void loadGoals() {
-    List<Goal> goals = new ArrayList<>();
+    List<Goal> goals = interactor.getGoals();
 
-    if (realm != null) {
-      RealmQuery<Goal> query = realm.where(Goal.class);
-      RealmResults<Goal> results = query.findAll();
-
-      for (Goal goal : results) {
-        goals.add(goal);
-      }
+    if (goals.isEmpty()) {
+      // TODO: Display a message
+    } else {
+      view.onGetData(goals);
     }
-    view.onGetData(goals);
   }
 }
