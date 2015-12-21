@@ -5,4 +5,5 @@
     <string name="title_activity_new_goal">NewGoalActivity</string>
 
     <string name="new_goal_name">Name:</string>
+    <string name="action_save">action_save</string>
 </resources>

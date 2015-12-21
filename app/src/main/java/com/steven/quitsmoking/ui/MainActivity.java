@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.add_goal:
-        Intent intent = new Intent(this, NewGoalActivity.class);
+        Intent intent = new Intent(this, AddGoalActivity.class);
         startActivity(intent);
         return true;
 

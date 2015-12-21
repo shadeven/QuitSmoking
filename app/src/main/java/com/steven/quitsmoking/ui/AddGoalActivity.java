@@ -1,18 +1,32 @@
 package com.steven.quitsmoking.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.steven.quitsmoking.R;
+import com.steven.quitsmoking.model.Goal;
+import com.steven.quitsmoking.presenter.AddGoalPresenterImpl;
+import com.steven.quitsmoking.presenter.AddGoalPrsenter;
 
-public class NewGoalActivity extends AppCompatActivity {
+import java.util.List;
+
+import io.realm.Realm;
+
+public class AddGoalActivity extends AppCompatActivity implements AddGoalActivityView {
+
+  private AddGoalPrsenter presenter;
+  private Realm realm;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_new_goal);
+
+    realm = Realm.getDefaultInstance();
+    presenter = new AddGoalPresenterImpl(realm, this);
   }
 
   @Override
@@ -24,16 +38,19 @@ public class NewGoalActivity extends AppCompatActivity {
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
+    if (id == R.id.action_save) {
+      presenter.saveAndLoadData();
+      Intent intent = new Intent(this, AddGoalActivity.class);
+      startActivity(intent);
       return true;
     }
 
     return super.onOptionsItemSelected(item);
+  }
+
+  @Override
+  public void onSaveData(List<Goal> goals) {
+
   }
 }

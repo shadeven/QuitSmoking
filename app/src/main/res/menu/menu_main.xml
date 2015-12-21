@@ -7,7 +7,7 @@
           android:title="Add Goal"
           app:showAsAction="never"/>
 
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_save"
           android:title="@string/action_settings"
           android:orderInCategory="100"
           app:showAsAction="never"/>
