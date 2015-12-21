@@ -22,8 +22,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     if (goals.isEmpty()) {
       // TODO: Display a message
-    } else {
-      view.onGetData(goals);
     }
+    view.onGetData(goals);
   }
 }
