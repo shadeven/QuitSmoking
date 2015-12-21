@@ -56,8 +56,7 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
     int id = item.getItemId();
     if (id == R.id.action_save) {
       presenter.saveAndLoadData(name.getText().toString(), description.getText().toString());
-      Intent intent = new Intent(this, GoalActivity.class);
-      startActivity(intent);
+      finish();
       return true;
     }
 
