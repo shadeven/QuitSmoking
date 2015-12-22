@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.steven.quitsmoking.R;
+import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.interactor.GoalInteractorImpl;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.presenter.MainPresenter;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   private Realm realm;
   private ArrayAdapter<Goal> adapter;
   private ListView listView;
-  private GoalInteractorImpl interactor;
+  private GoalInteractor interactor;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

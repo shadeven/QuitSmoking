@@ -3,7 +3,7 @@
     package="com.steven.quitsmoking" >
 
     <application
-        android:name=".application.GlobalApplicationState"
+        android:name=".application.ApplicationState"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
