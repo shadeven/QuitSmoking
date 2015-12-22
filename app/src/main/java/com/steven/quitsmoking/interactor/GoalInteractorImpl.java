@@ -8,6 +8,8 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import rx.Observable;
+import rx.functions.Func1;
 
 public class GoalInteractorImpl implements GoalInteractor {
 
@@ -18,9 +20,27 @@ public class GoalInteractorImpl implements GoalInteractor {
   }
 
   @Override
-  public List<Goal> getGoals() {
-    List<Goal> goals = new ArrayList<>();
+  public Observable<List<Goal>> getGoalsAsObservable() {
+    final List<Goal> goals = new ArrayList<>();
+    RealmQuery<Goal> query = realm.where(Goal.class);
+    RealmResults<Goal> results = query.findAll();
 
+    return results.asObservable()
+            .flatMap(new Func1<RealmResults<Goal>, Observable<Goal>>() {
+              @Override
+              public Observable<Goal> call(RealmResults<Goal> realmResults) {
+                for (Goal goal : realmResults) {
+                  goals.add(goal);
+                }
+                return Observable.from(goals);
+              }
+            })
+            .toList();
+  }
+
+  @Override
+  public List<Goal> getGoals() {
+    final List<Goal> goals = new ArrayList<>();
     RealmQuery<Goal> query = realm.where(Goal.class);
     RealmResults<Goal> results = query.findAll();
 
