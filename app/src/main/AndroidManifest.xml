@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".ui.GoalActivity"
-            android:label="@string/title_activity_new_goal" >
+            android:label="@string/title_goal_activity" >
         </activity>
     </application>
 

@@ -1,8 +1,8 @@
 package com.steven.quitsmoking.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -29,7 +29,10 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_new_goal);
+    setContentView(R.layout.activity_goal);
+
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
 
     name = (EditText) findViewById(R.id.editText_name);
     description = (EditText) findViewById(R.id.editText_description);
@@ -46,8 +49,7 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.menu_new_goal, menu);
+    getMenuInflater().inflate(R.menu.menu_goal, menu);
     return true;
   }
 

@@ -5,6 +5,7 @@ import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.ui.GoalActivityView;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class GoalPresenterImpl implements GoalPresenter {
@@ -20,7 +21,7 @@ public class GoalPresenterImpl implements GoalPresenter {
   @Override
   public void saveAndLoadData(String name, String description) {
     Goal goal = new Goal();
-    goal.setId(Integer.valueOf(UUID.randomUUID().toString()));
+    goal.setId(new Random().nextInt()); // FIXME: To be replaced
     goal.setName(name);
     goal.setDescription(description);
     interactor.saveGoal(goal);

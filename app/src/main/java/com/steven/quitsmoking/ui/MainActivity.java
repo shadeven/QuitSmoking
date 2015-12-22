@@ -16,6 +16,7 @@ import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.presenter.MainPresenter;
 import com.steven.quitsmoking.presenter.MainPresenterImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
   private MainPresenter presenter;
   private Realm realm;
-  private ArrayAdapter<Goal> adapter;
+  private GoalArrayAdapter adapter;
+  private List<Goal> goals = new ArrayList<>();
   private ListView listView;
   private GoalInteractor interactor;
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     setSupportActionBar(toolbar);
 
     listView = (ListView) findViewById(R.id.listView_goal);
-    adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+    adapter = new GoalArrayAdapter(this, android.R.layout.simple_list_item_1, goals);
     listView.setAdapter(adapter);
 
     realm = Realm.getDefaultInstance();
