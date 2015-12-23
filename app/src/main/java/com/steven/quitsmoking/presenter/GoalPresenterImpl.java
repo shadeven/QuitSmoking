@@ -21,7 +21,7 @@ public class GoalPresenterImpl implements GoalPresenter {
   @Override
   public void saveAndLoadData(String name, String description) {
     Goal goal = new Goal();
-    goal.setId(new Random().nextInt()); // FIXME: To be replaced
+    goal.setId(UUID.randomUUID().toString());
     goal.setName(name);
     goal.setDescription(description);
     interactor.saveGoal(goal);

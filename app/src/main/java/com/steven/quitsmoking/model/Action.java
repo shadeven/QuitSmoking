@@ -7,7 +7,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Action extends RealmObject {
 
-  @PrimaryKey private int id;
+  @PrimaryKey private String id;
   private String name;
   private String description;
   private Date startDate;
@@ -17,11 +17,11 @@ public class Action extends RealmObject {
   private Goal goal;
   private Achievement achievement;
 
-  public int getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(String id) {
     this.id = id;
   }
 
