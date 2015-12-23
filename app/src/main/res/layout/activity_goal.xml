@@ -46,9 +46,10 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText_duedate"
+        android:id="@+id/editText_dueDate"
         android:layout_below="@+id/editText_description"
         android:layout_alignParentStart="true"
-        android:hint="@string/label_goal_duedate"/>
+        android:hint="@string/label_goal_duedate"
+        android:focusableInTouchMode="false"/>
 
 </RelativeLayout>
