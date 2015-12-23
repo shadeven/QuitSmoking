@@ -52,7 +52,7 @@ public class GoalInteractorImpl implements GoalInteractor {
   }
 
   @Override
-  public void saveGoal(final Goal goal) {
+  public void saveGoalAsync(final Goal goal) {
     realm.executeTransaction(new Realm.Transaction() {
       @Override
       public void execute(Realm realm) {
@@ -67,6 +67,16 @@ public class GoalInteractorImpl implements GoalInteractor {
       @Override
       public void onError(Exception e) {
         Timber.e(e, "Error occurred.");
+      }
+    });
+  }
+
+  @Override
+  public void saveGoal(final Goal goal) {
+    realm.executeTransaction(new Realm.Transaction() {
+      @Override
+      public void execute(Realm realm) {
+        realm.copyToRealmOrUpdate(goal);
       }
     });
   }

@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     setSupportActionBar(toolbar);
 
     listView = (ListView) findViewById(R.id.listView_goal);
-    adapter = new GoalArrayAdapter(this, R.layout.row_item_goal, goals);
+    if (adapter == null) {
+      adapter = new GoalArrayAdapter(this, R.layout.row_item_goal, goals);
+    }
     listView.setAdapter(adapter);
 
     TextView empty = (TextView) findViewById(R.id.empty);
@@ -74,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         Intent intent = new Intent(this, GoalActivity.class);
         startActivity(intent);
         return true;
+
+      case R.id.action_refresh:
+        presenter.loadGoals();
+        adapter.notifyDataSetChanged();
 
       default:
         return super.onOptionsItemSelected(item);

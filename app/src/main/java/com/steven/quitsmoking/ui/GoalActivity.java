@@ -54,7 +54,7 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
-    if (id == R.id.action_save) {
+    if (id == R.id.action_refresh) {
       presenter.saveGoal(name.getText().toString(), description.getText().toString());
       return true;
     }

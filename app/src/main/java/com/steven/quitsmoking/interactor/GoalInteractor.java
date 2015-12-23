@@ -7,8 +7,8 @@ import java.util.List;
 import rx.Observable;
 
 public interface GoalInteractor {
-
   Observable<List<Goal>> getGoalsAsObservable();
   List<Goal> getGoals();
+  void saveGoalAsync(Goal goal);
   void saveGoal(Goal goal);
 }

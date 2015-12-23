@@ -7,8 +7,8 @@
           android:title="Add Goal"
           app:showAsAction="never"/>
 
-    <item android:id="@+id/action_save"
-          android:title="@string/action_settings"
+    <item android:id="@+id/action_refresh"
+          android:title="@string/action_refresh"
           android:orderInCategory="100"
           app:showAsAction="never"/>
 </menu>
