@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.steven.quitsmoking.R;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     setSupportActionBar(toolbar);
 
     listView = (ListView) findViewById(R.id.listView_goal);
-    adapter = new GoalArrayAdapter(this, android.R.layout.simple_list_item_1, goals);
+    adapter = new GoalArrayAdapter(this, R.layout.row_item_goal, goals);
     listView.setAdapter(adapter);
 
     realm = Realm.getDefaultInstance();

@@ -43,7 +43,7 @@ public class GoalArrayAdapter extends ArrayAdapter<Goal> {
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
     LayoutInflater inflater = LayoutInflater.from(context);
-    View rowView = inflater.inflate(R.layout.row_layout, parent, false);
+    View rowView = inflater.inflate(R.layout.row_item_goal, parent, false);
     TextView textView = (TextView) rowView.findViewById(R.id.label);
     textView.setText(goals.get(position).getName());
     return rowView;
