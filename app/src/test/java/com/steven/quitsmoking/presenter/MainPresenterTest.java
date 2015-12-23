@@ -2,7 +2,7 @@ package com.steven.quitsmoking.presenter;
 
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
-import com.steven.quitsmoking.ui.MainActivityView;
+import com.steven.quitsmoking.ui.view.MainActivityView;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainPresenterImplTest {
+public class MainPresenterTest {
 
   @Test
   public void emptyListShouldInvokeOnGetData() {
@@ -23,7 +23,7 @@ public class MainPresenterImplTest {
     GoalInteractor mockInteractor = mock(GoalInteractor.class);
 
     // Act
-    MainPresenter mainPresenter = new MainPresenterImpl(mockView, mockInteractor);
+    MainPresenter mainPresenter = new MainPresenter(mockView, mockInteractor);
     mainPresenter.loadGoals();
 
     // Assert

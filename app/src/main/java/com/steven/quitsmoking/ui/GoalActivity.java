@@ -11,8 +11,8 @@ import android.widget.Toast;
 import com.steven.quitsmoking.R;
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.interactor.GoalInteractorImpl;
-import com.steven.quitsmoking.presenter.GoalPresenterImpl;
 import com.steven.quitsmoking.presenter.GoalPresenter;
+import com.steven.quitsmoking.ui.view.GoalActivityView;
 
 import io.realm.Realm;
 
@@ -41,7 +41,7 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
     }
 
     if (presenter == null) {
-      presenter = new GoalPresenterImpl(this, interactor);
+      presenter = new GoalPresenter(this, interactor);
     }
   }
 

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.interactor.GoalInteractorImpl;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.presenter.MainPresenter;
-import com.steven.quitsmoking.presenter.MainPresenterImpl;
+import com.steven.quitsmoking.ui.view.MainActivityView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     if (presenter == null) {
-      presenter = new MainPresenterImpl(this, interactor);
+      presenter = new MainPresenter(this, interactor);
     }
     presenter.loadGoals();
   }

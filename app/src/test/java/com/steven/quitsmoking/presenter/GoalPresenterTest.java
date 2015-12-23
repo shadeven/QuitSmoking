@@ -1,7 +1,7 @@
 package com.steven.quitsmoking.presenter;
 
 import com.steven.quitsmoking.interactor.GoalInteractor;
-import com.steven.quitsmoking.ui.GoalActivityView;
+import com.steven.quitsmoking.ui.view.GoalActivityView;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class GoalPresenterImplTest {
+public class GoalPresenterTest {
 
   @Test
   public void saveGoalShouldCallOnGoalSaved() {
@@ -20,7 +20,7 @@ public class GoalPresenterImplTest {
     GoalInteractor mockInteractor = mock(GoalInteractor.class);
 
     // Assert
-    GoalPresenter presenter = new GoalPresenterImpl(mockView, mockInteractor);
+    GoalPresenter presenter = new GoalPresenter(mockView, mockInteractor);
     presenter.saveGoal("Quit smoking", "Quit smoking in one week");
 
     // Act

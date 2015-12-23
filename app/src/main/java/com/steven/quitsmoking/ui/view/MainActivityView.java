@@ -1,4 +1,4 @@
-package com.steven.quitsmoking.ui;
+package com.steven.quitsmoking.ui.view;
 
 import com.steven.quitsmoking.model.Goal;
 
