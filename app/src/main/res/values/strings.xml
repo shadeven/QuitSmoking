@@ -7,4 +7,5 @@
     <string name="label_goal_description">Description</string>
     <string name="label_goal_duedate">Due date</string>
     <string name="action_save">Save</string>
+    <string name="empty">No record found.</string>
 </resources>

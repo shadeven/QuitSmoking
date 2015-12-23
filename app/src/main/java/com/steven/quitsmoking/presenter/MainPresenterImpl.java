@@ -19,10 +19,6 @@ public class MainPresenterImpl implements MainPresenter {
   @Override
   public void loadGoals() {
     List<Goal> goals = interactor.getGoals();
-
-    if (goals.isEmpty()) {
-      // TODO: Display a message
-    }
     view.onGetData(goals);
   }
 }

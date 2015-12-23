@@ -5,7 +5,6 @@ import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.ui.GoalActivityView;
 
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 public class GoalPresenterImpl implements GoalPresenter {
@@ -25,12 +24,7 @@ public class GoalPresenterImpl implements GoalPresenter {
     goal.setName(name);
     goal.setDescription(description);
     interactor.saveGoal(goal);
-
     List<Goal> goals = interactor.getGoals();
-    if (goals.isEmpty()) {
-      // TODO:
-    } else {
-      view.onSaveData(goals);
-    }
+    view.onSaveData(goals);
   }
 }
