@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MainPresenterTest {
+public class MainPresenterImplTest {
 
   @Test
   public void emptyListShouldInvokeOnGetData() {
