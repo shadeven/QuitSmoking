@@ -23,7 +23,7 @@ public class MainPresenterImplTest {
     GoalInteractor mockInteractor = mock(GoalInteractor.class);
 
     // Act
-    MainPresenterImpl mainPresenter = new MainPresenterImpl(mockView, mockInteractor);
+    MainPresenter mainPresenter = new MainPresenterImpl(mockView, mockInteractor);
     mainPresenter.loadGoals();
 
     // Assert
