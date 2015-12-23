@@ -10,6 +10,7 @@ import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import rx.Observable;
 import rx.functions.Func1;
+import timber.log.Timber;
 
 public class GoalInteractorImpl implements GoalInteractor {
 
@@ -56,6 +57,16 @@ public class GoalInteractorImpl implements GoalInteractor {
       @Override
       public void execute(Realm realm) {
         realm.copyToRealmOrUpdate(goal);
+      }
+    }, new Realm.Transaction.Callback() {
+      @Override
+      public void onSuccess() {
+        Timber.d("Goal saved asynchronously.");
+      }
+
+      @Override
+      public void onError(Exception e) {
+        Timber.e(e, "Error occurred.");
       }
     });
   }
