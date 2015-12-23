@@ -55,7 +55,7 @@ public class GoalInteractorImpl implements GoalInteractor {
     realm.executeTransaction(new Realm.Transaction() {
       @Override
       public void execute(Realm realm) {
-        realm.copyToRealm(goal);
+        realm.copyToRealmOrUpdate(goal);
       }
     });
   }

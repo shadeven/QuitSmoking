@@ -18,13 +18,13 @@ public class GoalPresenterImpl implements GoalPresenter {
   }
 
   @Override
-  public void saveAndLoadData(String name, String description) {
+  public void saveData(String name, String description) {
     Goal goal = new Goal();
     goal.setId(UUID.randomUUID().toString());
     goal.setName(name);
     goal.setDescription(description);
+//    goal.setDueDate(); // TODO: To be implemented
     interactor.saveGoal(goal);
-    List<Goal> goals = interactor.getGoals();
-    view.onSaveData(goals);
+    view.onSaveData();
   }
 }

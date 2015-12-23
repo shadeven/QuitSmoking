@@ -94,5 +94,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   public void onGetData(List<Goal> goals) {
     adapter.clear();
     adapter.addAll(goals);
+    adapter.notifyDataSetChanged();
   }
 }

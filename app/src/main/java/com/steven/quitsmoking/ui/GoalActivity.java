@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.steven.quitsmoking.R;
 import com.steven.quitsmoking.interactor.GoalInteractor;
@@ -57,16 +58,15 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView 
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
     if (id == R.id.action_save) {
-      presenter.saveAndLoadData(name.getText().toString(), description.getText().toString());
-      finish();
+      presenter.saveData(name.getText().toString(), description.getText().toString());
       return true;
     }
-
     return super.onOptionsItemSelected(item);
   }
 
   @Override
-  public void onSaveData(List<Goal> goals) {
-    // TODO:
+  public void onSaveData() {
+    Toast.makeText(this, "Goal saved.", Toast.LENGTH_SHORT).show();
+    finish();
   }
 }
