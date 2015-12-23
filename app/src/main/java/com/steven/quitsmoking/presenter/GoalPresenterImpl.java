@@ -1,10 +1,11 @@
 package com.steven.quitsmoking.presenter;
 
+import android.support.annotation.NonNull;
+
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
 import com.steven.quitsmoking.ui.GoalActivityView;
 
-import java.util.List;
 import java.util.UUID;
 
 public class GoalPresenterImpl implements GoalPresenter {
@@ -18,13 +19,19 @@ public class GoalPresenterImpl implements GoalPresenter {
   }
 
   @Override
-  public void saveData(String name, String description) {
+  public void saveGoal(String name, String description) {
+    Goal goal = createGoal(name, description);
+    interactor.saveGoal(goal);
+    view.onGoalSaved();
+  }
+
+  @NonNull
+  private Goal createGoal(String name, String description) {
     Goal goal = new Goal();
     goal.setId(UUID.randomUUID().toString());
     goal.setName(name);
     goal.setDescription(description);
 //    goal.setDueDate(); // TODO: To be implemented
-    interactor.saveGoal(goal);
-    view.onSaveData();
+    return goal;
   }
 }

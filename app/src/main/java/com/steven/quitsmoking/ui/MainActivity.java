@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
   }
 
   @Override
-  public void onGetData(List<Goal> goals) {
+  public void onDataLoaded(List<Goal> goals) {
     adapter.clear();
     adapter.addAll(goals);
     adapter.notifyDataSetChanged();

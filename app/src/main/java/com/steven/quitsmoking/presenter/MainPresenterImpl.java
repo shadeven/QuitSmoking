@@ -19,6 +19,6 @@ public class MainPresenterImpl implements MainPresenter {
   @Override
   public void loadGoals() {
     List<Goal> goals = interactor.getGoals();
-    view.onGetData(goals);
+    view.onDataLoaded(goals);
   }
 }

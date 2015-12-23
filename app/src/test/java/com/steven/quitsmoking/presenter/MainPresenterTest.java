@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Collections;
-import java.util.UUID;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -28,6 +27,6 @@ public class MainPresenterTest {
     mainPresenter.loadGoals();
 
     // Assert
-    verify(mockView).onGetData(Collections.<Goal>emptyList());
+    verify(mockView).onDataLoaded(Collections.<Goal>emptyList());
   }
 }
