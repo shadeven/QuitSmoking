@@ -1,4 +1,4 @@
-package com.steven.quitsmoking.presenter;
+package com.steven.quitsmoking.ui.presenter;
 
 import android.support.annotation.NonNull;
 

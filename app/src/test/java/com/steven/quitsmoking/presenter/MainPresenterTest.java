@@ -2,6 +2,7 @@ package com.steven.quitsmoking.presenter;
 
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
+import com.steven.quitsmoking.ui.presenter.MainPresenter;
 import com.steven.quitsmoking.ui.view.MainActivityView;
 
 import org.junit.Test;

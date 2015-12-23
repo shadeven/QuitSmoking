@@ -13,7 +13,7 @@ import com.steven.quitsmoking.R;
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.interactor.GoalInteractorImpl;
 import com.steven.quitsmoking.model.Goal;
-import com.steven.quitsmoking.presenter.MainPresenter;
+import com.steven.quitsmoking.ui.presenter.MainPresenter;
 import com.steven.quitsmoking.ui.view.MainActivityView;
 
 import java.util.ArrayList;

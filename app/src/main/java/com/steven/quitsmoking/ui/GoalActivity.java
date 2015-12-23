@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.steven.quitsmoking.R;
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.interactor.GoalInteractorImpl;
-import com.steven.quitsmoking.presenter.GoalPresenter;
+import com.steven.quitsmoking.ui.presenter.GoalPresenter;
 import com.steven.quitsmoking.ui.view.GoalActivityView;
 
 import io.realm.Realm;
