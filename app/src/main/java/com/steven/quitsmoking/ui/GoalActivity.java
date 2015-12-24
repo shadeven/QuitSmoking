@@ -28,9 +28,9 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
   private GoalPresenter presenter;
   private Realm realm;
   private GoalInteractor interactor;
-  private EditText name;
-  private EditText description;
-  private EditText dueDate;
+  private EditText nameText;
+  private EditText descriptionText;
+  private EditText dueDateText;
   private DatePickerDialog datePickerDialog;
 
   @Override
@@ -41,11 +41,11 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    name = (EditText) findViewById(R.id.editText_name);
-    description = (EditText) findViewById(R.id.editText_description);
+    nameText = (EditText) findViewById(R.id.editText_name);
+    descriptionText = (EditText) findViewById(R.id.editText_description);
 
-    dueDate = (EditText) findViewById(R.id.editText_dueDate);
-    dueDate.setOnClickListener(this);
+    dueDateText = (EditText) findViewById(R.id.editText_dueDate);
+    dueDateText.setOnClickListener(this);
 
     Calendar calendar = Calendar.getInstance();
     datePickerDialog = new DatePickerDialog(this, this,
@@ -72,8 +72,10 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
-      case R.id.action_refresh:
-        presenter.saveGoal(name.getText().toString(), description.getText().toString());
+      case R.id.action_save:
+        presenter.saveGoal(nameText.getText().toString(),
+                descriptionText.getText().toString(),
+                dueDateText.getText().toString());
         return true;
 
       case R.id.action_back:
@@ -87,13 +89,18 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
 
   @Override
   public void onGoalSaved() {
-    Toast.makeText(this, "Goal saved.", Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, R.string.goal_saved, Toast.LENGTH_SHORT).show();
     finish();
   }
 
   @Override
+  public void onShowError() {
+    Toast.makeText(this, R.string.invalid_input, Toast.LENGTH_SHORT).show();
+  }
+
+  @Override
   public void onClick(View view) {
-    if (view == dueDate) {
+    if (view == dueDateText) {
       datePickerDialog.show();
     }
   }
@@ -103,6 +110,6 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
     Calendar newDate = Calendar.getInstance();
     newDate.set(year, monthOfYear, dayOfMonth);
-    dueDate.setText(dateFormatter.format(newDate.getTime()));
+    dueDateText.setText(dateFormatter.format(newDate.getTime()));
   }
 }

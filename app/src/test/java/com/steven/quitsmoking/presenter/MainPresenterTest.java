@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 public class MainPresenterTest {
 
   @Test
-  public void emptyListShouldInvokeOnGetData() {
+  public void emptyListShouldCallOnGetData() {
     // Arrange
     MainActivityView mockView = mock(MainActivityView.class);
     GoalInteractor mockInteractor = mock(GoalInteractor.class);

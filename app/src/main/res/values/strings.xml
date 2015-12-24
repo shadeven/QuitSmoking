@@ -4,10 +4,12 @@
     <string name="message">Have you achieved your goals today?</string>
     <string name="title_goal_activity">Create a new goal</string>
     <string name="label_goal_name">Name</string>
-    <string name="label_goal_description">Description</string>
+    <string name="label_goal_description">Description(Optional)</string>
     <string name="label_goal_duedate">Due date</string>
     <string name="action_save">Save</string>
     <string name="empty">No record found.</string>
     <string name="back">Back</string>
     <string name="action_refresh">Refresh</string>
+    <string name="goal_saved">New goal saved.</string>
+    <string name="invalid_input">Please enter at least name and due date.</string>
 </resources>
