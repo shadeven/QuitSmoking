@@ -76,6 +76,10 @@ public class GoalActivity extends AppCompatActivity implements GoalActivityView,
         presenter.saveGoal(name.getText().toString(), description.getText().toString());
         return true;
 
+      case R.id.action_back:
+        finish();
+        return true;
+
       default:
         return super.onOptionsItemSelected(item);
     }
