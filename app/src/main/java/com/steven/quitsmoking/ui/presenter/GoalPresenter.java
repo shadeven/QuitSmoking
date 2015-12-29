@@ -1,7 +1,6 @@
 package com.steven.quitsmoking.ui.presenter;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
 import com.steven.quitsmoking.interactor.GoalInteractor;
 import com.steven.quitsmoking.model.Goal;
